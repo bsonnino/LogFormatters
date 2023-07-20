@@ -6,7 +6,7 @@ var configuration = new ConfigurationBuilder()
     .AddJsonFile($"appsettings.json", false, true)
     .Build();
                                 
-var loggerFactory = LoggerFactory.Create(builder =>
+using var loggerFactory = LoggerFactory.Create(builder =>
 {
     builder
         .AddConfiguration(configuration.GetSection("Logging"))
@@ -42,5 +42,6 @@ logger.LogInformation("This is an information message");
 logger.LogWarning("This is a warning message");
 logger.LogError("This is an error message");
 logger.LogCritical("This is a critical message");
-Task.Delay(1000).Wait();
+//Task.Delay(1000).Wait();
+
 
